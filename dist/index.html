@@ -13,7 +13,6 @@
         box-sizing: border-box;
         overflow: -moz-scrollbars-vertical;
         overflow-y: scroll;
-
       }
 
       *,
@@ -27,7 +26,6 @@
       {
         margin:0;
         background: #fafafa;
-
       }
     </style>
   </head>
@@ -39,17 +37,10 @@
     <script src="./swagger-ui-standalone-preset.js"> </script>
     <script>
 
-
-      function log() {
-        if ('console' in window) {
-          console.log.apply(console, arguments);
-        }
-	  }
-
     window.onload = function() {
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: "http://api.alchemy.alchemysocial.com/docs/public/base.json",
+        url: alchemySwaggerUrl(),
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
@@ -65,6 +56,11 @@
 
       window.ui = ui
     }
+
+	function alchemySwaggerUrl() {
+		return window.location.origin + "/swagger/public/base.json";
+	}
+
   </script>
   </body>
 </html>
